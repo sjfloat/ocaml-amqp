@@ -1,0 +1,311 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Amqp_spec.html">
+<link rel="next" href="Amqp_util.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Amqp" rel="Chapter" href="Amqp.html">
+<link title="Amqp_channel" rel="Chapter" href="Amqp_channel.html">
+<link title="Amqp_connection" rel="Chapter" href="Amqp_connection.html">
+<link title="Amqp_constants" rel="Chapter" href="Amqp_constants.html">
+<link title="Amqp_exchange" rel="Chapter" href="Amqp_exchange.html">
+<link title="Amqp_framing" rel="Chapter" href="Amqp_framing.html">
+<link title="Amqp_protocol" rel="Chapter" href="Amqp_protocol.html">
+<link title="Amqp_queue" rel="Chapter" href="Amqp_queue.html">
+<link title="Amqp_rpc" rel="Chapter" href="Amqp_rpc.html">
+<link title="Amqp_spec" rel="Chapter" href="Amqp_spec.html">
+<link title="Amqp_types" rel="Chapter" href="Amqp_types.html">
+<link title="Amqp_util" rel="Chapter" href="Amqp_util.html"><title>Amqp_types</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Amqp_spec.html" title="Amqp_spec">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Amqp_util.html" title="Amqp_util">Next</a>
+</div>
+<h1>Module <a href="type_Amqp_types.html">Amqp_types</a></h1>
+
+<pre><span class="keyword">module</span> Amqp_types: <code class="code">sig</code> <a href="Amqp_types.html">..</a> <code class="code">end</code></pre><hr width="100%">
+
+<pre><span id="TYPEclass_id"><span class="keyword">type</span> <code class="type"></code>class_id</span> = <code class="type">int</code> </pre>
+
+
+<pre><span id="TYPEmethod_id"><span class="keyword">type</span> <code class="type"></code>method_id</span> = <code class="type">int</code> </pre>
+
+
+<pre><span id="TYPEmessage_id"><span class="keyword">type</span> <code class="type"></code>message_id</span> = <code class="type"><a href="Amqp_types.html#TYPEclass_id">class_id</a> * <a href="Amqp_types.html#TYPEmethod_id">method_id</a></code> </pre>
+
+
+<pre><span id="TYPEbit"><span class="keyword">type</span> <code class="type"></code>bit</span> = <code class="type">bool</code> </pre>
+
+
+<pre><span id="TYPEoctet"><span class="keyword">type</span> <code class="type"></code>octet</span> = <code class="type">int</code> </pre>
+
+
+<pre><span id="TYPEshort"><span class="keyword">type</span> <code class="type"></code>short</span> = <code class="type">int</code> </pre>
+
+
+<pre><span id="TYPElong"><span class="keyword">type</span> <code class="type"></code>long</span> = <code class="type">int</code> </pre>
+
+
+<pre><span id="TYPElonglong"><span class="keyword">type</span> <code class="type"></code>longlong</span> = <code class="type">int</code> </pre>
+
+
+<pre><span id="TYPEshortstr"><span class="keyword">type</span> <code class="type"></code>shortstr</span> = <code class="type">string</code> </pre>
+
+
+<pre><span id="TYPElongstr"><span class="keyword">type</span> <code class="type"></code>longstr</span> = <code class="type">string</code> </pre>
+
+
+<pre><span id="TYPEtimestamp"><span class="keyword">type</span> <code class="type"></code>timestamp</span> = <code class="type">int</code> </pre>
+
+
+<pre><code><span id="TYPEdecimal"><span class="keyword">type</span> <code class="type"></code>decimal</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTdecimal.digits">digits</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTdecimal.value">value</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr></table>
+}
+
+
+
+<pre><span id="TYPEtable"><span class="keyword">type</span> <code class="type"></code>table</span> = <code class="type">(string * <a href="Amqp_types.html#TYPEvalue">value</a>) list</code> </pre>
+
+
+<pre><span id="TYPEarray"><span class="keyword">type</span> <code class="type"></code>array</span> = <code class="type"><a href="Amqp_types.html#TYPEvalue">value</a> list</code> </pre>
+
+
+<pre><code><span id="TYPEvalue"><span class="keyword">type</span> <code class="type"></code>value</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvalue.VBoolean"><span class="constructor">VBoolean</span></span> <span class="keyword">of</span> <code class="type">bool</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvalue.VShortshort"><span class="constructor">VShortshort</span></span> <span class="keyword">of</span> <code class="type">int</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvalue.VShort"><span class="constructor">VShort</span></span> <span class="keyword">of</span> <code class="type">int</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvalue.VLong"><span class="constructor">VLong</span></span> <span class="keyword">of</span> <code class="type">int</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvalue.VLonglong"><span class="constructor">VLonglong</span></span> <span class="keyword">of</span> <code class="type">int</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvalue.VShortstr"><span class="constructor">VShortstr</span></span> <span class="keyword">of</span> <code class="type">string</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvalue.VLongstr"><span class="constructor">VLongstr</span></span> <span class="keyword">of</span> <code class="type">string</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvalue.VFloat"><span class="constructor">VFloat</span></span> <span class="keyword">of</span> <code class="type">float</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvalue.VDouble"><span class="constructor">VDouble</span></span> <span class="keyword">of</span> <code class="type">float</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvalue.VDecimal"><span class="constructor">VDecimal</span></span> <span class="keyword">of</span> <code class="type"><a href="Amqp_types.html#TYPEdecimal">decimal</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvalue.VTable"><span class="constructor">VTable</span></span> <span class="keyword">of</span> <code class="type"><a href="Amqp_types.html#TYPEtable">table</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvalue.VArray"><span class="constructor">VArray</span></span> <span class="keyword">of</span> <code class="type"><a href="Amqp_types.html#TYPEvalue">value</a> list</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvalue.VTimestamp"><span class="constructor">VTimestamp</span></span> <span class="keyword">of</span> <code class="type">int</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvalue.VUnit"><span class="constructor">VUnit</span></span> <span class="keyword">of</span> <code class="type">unit</code></code></td>
+
+</tr></table>
+
+
+
+<pre><span id="EXCEPTIONUnknown_class_id"><span class="keyword">exception</span> Unknown_class_id</span> <span class="keyword">of</span> <code class="type">int</code></pre>
+
+<pre><span id="EXCEPTIONUnknown_method_id"><span class="keyword">exception</span> Unknown_method_id</span> <span class="keyword">of</span> <code class="type">int</code></pre>
+
+<pre><code><span id="TYPEelem"><span class="keyword">type</span> <code class="type">'_</code> elem</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTelem.Bit"><span class="constructor">Bit</span></span> <span class="keyword">:</span> <code class="type">bool <a href="Amqp_types.html#TYPEelem">elem</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTelem.Octet"><span class="constructor">Octet</span></span> <span class="keyword">:</span> <code class="type">int <a href="Amqp_types.html#TYPEelem">elem</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTelem.Short"><span class="constructor">Short</span></span> <span class="keyword">:</span> <code class="type">int <a href="Amqp_types.html#TYPEelem">elem</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTelem.Long"><span class="constructor">Long</span></span> <span class="keyword">:</span> <code class="type">int <a href="Amqp_types.html#TYPEelem">elem</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTelem.Longlong"><span class="constructor">Longlong</span></span> <span class="keyword">:</span> <code class="type">int <a href="Amqp_types.html#TYPEelem">elem</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTelem.Shortstr"><span class="constructor">Shortstr</span></span> <span class="keyword">:</span> <code class="type">string <a href="Amqp_types.html#TYPEelem">elem</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTelem.Longstr"><span class="constructor">Longstr</span></span> <span class="keyword">:</span> <code class="type">string <a href="Amqp_types.html#TYPEelem">elem</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTelem.Float"><span class="constructor">Float</span></span> <span class="keyword">:</span> <code class="type">float <a href="Amqp_types.html#TYPEelem">elem</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTelem.Double"><span class="constructor">Double</span></span> <span class="keyword">:</span> <code class="type">float <a href="Amqp_types.html#TYPEelem">elem</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTelem.Decimal"><span class="constructor">Decimal</span></span> <span class="keyword">:</span> <code class="type"><a href="Amqp_types.html#TYPEdecimal">decimal</a> <a href="Amqp_types.html#TYPEelem">elem</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTelem.Table"><span class="constructor">Table</span></span> <span class="keyword">:</span> <code class="type"><a href="Amqp_types.html#TYPEtable">table</a> <a href="Amqp_types.html#TYPEelem">elem</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTelem.Timestamp"><span class="constructor">Timestamp</span></span> <span class="keyword">:</span> <code class="type"><a href="Amqp_types.html#TYPEtimestamp">timestamp</a> <a href="Amqp_types.html#TYPEelem">elem</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTelem.Array"><span class="constructor">Array</span></span> <span class="keyword">:</span> <code class="type"><a href="Amqp_types.html#TYPEarray">array</a> <a href="Amqp_types.html#TYPEelem">elem</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTelem.Unit"><span class="constructor">Unit</span></span> <span class="keyword">:</span> <code class="type">unit <a href="Amqp_types.html#TYPEelem">elem</a></code></code></td>
+
+</tr></table>
+
+
+
+<pre><span id="VALtap"><span class="keyword">val</span> tap</span> : <code class="type">('a -> 'b) -> 'a -> 'a</code></pre>
+<pre><span id="VALreserved_value"><span class="keyword">val</span> reserved_value</span> : <code class="type">'a. 'a <a href="Amqp_types.html#TYPEelem">elem</a> -> 'a</code></pre>
+<pre><span id="VALread_while"><span class="keyword">val</span> read_while</span> : <code class="type"><a href="Amqp_protocol.Input.html#TYPEt">Amqp_protocol.Input.t</a> -> (<a href="Amqp_protocol.Input.html#TYPEt">Amqp_protocol.Input.t</a> -> 'a) -> 'a list</code></pre>
+<pre><span id="VALdecode"><span class="keyword">val</span> decode</span> : <code class="type">'a. 'a <a href="Amqp_types.html#TYPEelem">elem</a> -> <a href="Amqp_protocol.Input.html#TYPEt">Amqp_protocol.Input.t</a> -> 'a</code></pre>
+<pre><span id="VALdecode_field"><span class="keyword">val</span> decode_field</span> : <code class="type"><a href="Amqp_protocol.Input.html#TYPEt">Amqp_protocol.Input.t</a> -> <a href="Amqp_types.html#TYPEvalue">value</a></code></pre>
+<pre><span id="VALencode"><span class="keyword">val</span> encode</span> : <code class="type">'a. 'a <a href="Amqp_types.html#TYPEelem">elem</a> -> <a href="Amqp_protocol.Output.html#TYPEt">Amqp_protocol.Output.t</a> -> 'a -> unit</code></pre>
+<pre><span id="VALencode_field"><span class="keyword">val</span> encode_field</span> : <code class="type"><a href="Amqp_protocol.Output.html#TYPEt">Amqp_protocol.Output.t</a> -> <a href="Amqp_types.html#TYPEvalue">value</a> -> unit</code></pre>
+<pre><span id="VALelem_to_string"><span class="keyword">val</span> elem_to_string</span> : <code class="type">'a. 'a <a href="Amqp_types.html#TYPEelem">elem</a> -> string</code></pre>
+<pre><span class="keyword">module</span> <a href="Amqp_types.Spec.html">Spec</a>: <code class="code">sig</code> <a href="Amqp_types.Spec.html">..</a> <code class="code">end</code></pre>
+<pre><span class="keyword">module</span> <a href="Amqp_types.Content.html">Content</a>: <code class="code">sig</code> <a href="Amqp_types.Content.html">..</a> <code class="code">end</code></pre></body></html>
