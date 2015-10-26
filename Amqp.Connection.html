@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="next" href="Amqp.Queue.html">
+<link rel="Up" href="Amqp.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Amqp" rel="Chapter" href="Amqp.html">
+<link title="Amqp_channel" rel="Chapter" href="Amqp_channel.html">
+<link title="Amqp_connection" rel="Chapter" href="Amqp_connection.html">
+<link title="Amqp_constants" rel="Chapter" href="Amqp_constants.html">
+<link title="Amqp_exchange" rel="Chapter" href="Amqp_exchange.html">
+<link title="Amqp_framing" rel="Chapter" href="Amqp_framing.html">
+<link title="Amqp_protocol" rel="Chapter" href="Amqp_protocol.html">
+<link title="Amqp_queue" rel="Chapter" href="Amqp_queue.html">
+<link title="Amqp_rpc" rel="Chapter" href="Amqp_rpc.html">
+<link title="Amqp_spec" rel="Chapter" href="Amqp_spec.html">
+<link title="Amqp_types" rel="Chapter" href="Amqp_types.html">
+<link title="Amqp_util" rel="Chapter" href="Amqp_util.html"><title>Amqp.Connection</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="Amqp.html" title="Amqp">Up</a>
+&nbsp;<a class="post" href="Amqp.Queue.html" title="Amqp.Queue">Next</a>
+</div>
+<h1>Module <a href="type_Amqp.Connection.html">Amqp.Connection</a></h1>
+
+<pre><span class="keyword">module</span> Connection: <code class="type"><a href="Amqp_connection.html">Amqp_connection</a></code></pre><hr width="100%">
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
+
+
+<pre><span id="VALopen_connection"><span class="keyword">val</span> open_connection</span> : <code class="type"><a href="Amqp_connection.html#TYPEt">t</a> -> unit Async.Std.Deferred.t</code></pre>
+<pre><span id="VALconnect"><span class="keyword">val</span> connect</span> : <code class="type">id:string -><br>       ?virtual_host:string -><br>       ?port:int -><br>       ?credentials:string * string -><br>       string -> <a href="Amqp_connection.html#TYPEt">t</a> Async.Std.Deferred.t</code></pre>
+<pre><span id="VALopen_channel"><span class="keyword">val</span> open_channel</span> : <code class="type">id:string -> <a href="Amqp_connection.html#TYPEt">t</a> -> <a href="Amqp_channel.html#TYPEt">Amqp_channel.t</a> Async.Std.Deferred.t</code></pre></body></html>

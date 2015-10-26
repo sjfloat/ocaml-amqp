@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Amqp.Queue.html">
+<link rel="next" href="Amqp.Exchange.html">
+<link rel="Up" href="Amqp.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Amqp" rel="Chapter" href="Amqp.html">
+<link title="Amqp_channel" rel="Chapter" href="Amqp_channel.html">
+<link title="Amqp_connection" rel="Chapter" href="Amqp_connection.html">
+<link title="Amqp_constants" rel="Chapter" href="Amqp_constants.html">
+<link title="Amqp_exchange" rel="Chapter" href="Amqp_exchange.html">
+<link title="Amqp_framing" rel="Chapter" href="Amqp_framing.html">
+<link title="Amqp_protocol" rel="Chapter" href="Amqp_protocol.html">
+<link title="Amqp_queue" rel="Chapter" href="Amqp_queue.html">
+<link title="Amqp_rpc" rel="Chapter" href="Amqp_rpc.html">
+<link title="Amqp_spec" rel="Chapter" href="Amqp_spec.html">
+<link title="Amqp_types" rel="Chapter" href="Amqp_types.html">
+<link title="Amqp_util" rel="Chapter" href="Amqp_util.html"><title>Amqp.Channel</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Amqp.Queue.html" title="Amqp.Queue">Previous</a>
+&nbsp;<a class="up" href="Amqp.html" title="Amqp">Up</a>
+&nbsp;<a class="post" href="Amqp.Exchange.html" title="Amqp.Exchange">Next</a>
+</div>
+<h1>Module <a href="type_Amqp.Channel.html">Amqp.Channel</a></h1>
+
+<pre><span class="keyword">module</span> Channel: <code class="type"><a href="Amqp_channel.html">Amqp_channel</a></code></pre><hr width="100%">
+
+<pre><span id="TYPEmessage"><span class="keyword">type</span> <code class="type"></code>message</span> = <code class="type"><a href="Amqp_spec.Basic.Deliver.html#TYPEt">Amqp_spec.Basic.Deliver.t</a> * (<a href="Amqp_spec.Basic.Content.html#TYPEt">Amqp_spec.Basic.Content.t</a> * string)</code> </pre>
+
+
+<pre><span id="TYPEconsumers"><span class="keyword">type</span> <code class="type"></code>consumers</span> = <code class="type">(string, <a href="Amqp_channel.html#TYPEmessage">message</a> -> unit) Hashtbl.t</code> </pre>
+
+
+<pre><span id="TYPEclose_handler"><span class="keyword">type</span> <code class="type"></code>close_handler</span> = <code class="type">int -> <a href="Amqp_spec.Channel.Close.html#TYPEt">Amqp_spec.Channel.Close.t</a> -> unit Async.Std.Deferred.t</code> </pre>
+
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
+
+
+<pre><span id="VALchannel"><span class="keyword">val</span> channel</span> : <code class="type"><a href="Amqp_channel.html#TYPEt">t</a> -> <a href="Amqp_framing.html#TYPEt">Amqp_framing.t</a> * int</code></pre><br>
+Register handlers - For internal use<br>
+
+<pre><span id="VALregister_deliver_handler"><span class="keyword">val</span> register_deliver_handler</span> : <code class="type"><a href="Amqp_channel.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALregister_consumer_handler"><span class="keyword">val</span> register_consumer_handler</span> : <code class="type"><a href="Amqp_channel.html#TYPEt">t</a> -> string -> (<a href="Amqp_channel.html#TYPEmessage">message</a> -> unit) -> unit</code></pre>
+<pre><span id="VALderegister_consumer_handler"><span class="keyword">val</span> deregister_consumer_handler</span> : <code class="type"><a href="Amqp_channel.html#TYPEt">t</a> -> string -> unit</code></pre>
+<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">id:string -><br>       <a href="Amqp_framing.html#TYPEt">Amqp_framing.t</a> -><br>       <a href="Amqp_framing.html#TYPEchannel_no">Amqp_framing.channel_no</a> -> <a href="Amqp_channel.html#TYPEt">t</a> Async.Std.Deferred.t</code></pre><div class="info ">
+Create a new channel. Use Connection.open_channel instead<br>
+</div>
+
+<pre><span id="VALclose"><span class="keyword">val</span> close</span> : <code class="type"><a href="Amqp_channel.html#TYPEt">t</a> -> unit Async.Std.Deferred.t</code></pre><div class="info ">
+Close the channel<br>
+</div>
+
+<pre><span id="VALregister_close_handler"><span class="keyword">val</span> register_close_handler</span> : <code class="type"><a href="Amqp_channel.html#TYPEt">t</a> -> <a href="Amqp_channel.html#TYPEclose_handler">close_handler</a> -> unit</code></pre><div class="info ">
+Register a handler if the connection closes unexpectedly.
+    This handler will not be called if the channel is closed by the user.
+    The default handler is to terminate the application<br>
+</div>
+
+<pre><span id="VALon_return"><span class="keyword">val</span> on_return</span> : <code class="type"><a href="Amqp_channel.html#TYPEt">t</a> -><br>       (<a href="Amqp_spec.Basic.Return.html#TYPEt">Amqp_spec.Basic.Return.t</a> * (<a href="Amqp_spec.Basic.Content.html#TYPEt">Amqp_spec.Basic.Content.t</a> * string) -><br>        unit Async.Std.Deferred.t) -><br>       unit</code></pre><div class="info ">
+Register handler if messages are rejected by the amqp server.<br>
+</div>
+
+<pre><span id="VALid"><span class="keyword">val</span> id</span> : <code class="type"><a href="Amqp_channel.html#TYPEt">t</a> -> string</code></pre><div class="info ">
+Get the id of the channel<br>
+</div>
+
+<pre><span id="VALchannel_no"><span class="keyword">val</span> channel_no</span> : <code class="type"><a href="Amqp_channel.html#TYPEt">t</a> -> int</code></pre><div class="info ">
+Get the channel_no of the connection<br>
+</div>
+
+<pre><span id="VALunique_id"><span class="keyword">val</span> unique_id</span> : <code class="type"><a href="Amqp_channel.html#TYPEt">t</a> -> string</code></pre><div class="info ">
+Construct a unique id for this channel<br>
+</div>
+
+<pre><span id="VALset_prefetch"><span class="keyword">val</span> set_prefetch</span> : <code class="type">?count:<a href="Amqp_types.html#TYPEshort">Amqp_types.short</a> -><br>       ?size:<a href="Amqp_types.html#TYPElong">Amqp_types.long</a> -><br>       ?global:<a href="Amqp_types.html#TYPEbit">Amqp_types.bit</a> -> <a href="Amqp_channel.html#TYPEt">t</a> -> unit Async_kernel.Deferred0.t</code></pre><div class="info ">
+Set prefetch counters for a channel to globally
+    Note that on rabbitmq, prefetch only affects consumers on the channel.
+    In this case, setting the global flag will have the limit set on the channel.
+    If the flag is false (using rabbitmq) the limits will be per consumer.<br>
+</div>
+</body></html>
